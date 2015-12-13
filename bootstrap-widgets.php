@@ -1,17 +1,29 @@
 <?php
-/*
-Plugin Name:        GB3
-Plugin URI:         https://github.com/bryanwillis/bootstrap-genesis-addons/
-Description:        Add Bootstrap to Genesis Theme via plugin
-Version:            1.0.0
-Author:             bryanwillis
-Author URI:         https://github.com/bryanwillis/
-License:            MIT License
-License URI:        http://opensource.org/licenses/MIT
-*/
+/**
+ * Wordpress Widgets Bootstraped
+ *
+ * @package   Wordpress Widgets Bootstraped
+ * @author    Bryan Willis <bryanwillis1@gmail.com>
+ * @co-author Philip Newcomer
+ * @license   GPL-2.0+
+ * @link      http://wordpress.stackexchange.com/a/211634/43806
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Wordpress Widgets Bootstraped 
+ * Plugin URI:        https://github.com/Wordpress-Development/bootstrap-widgets.php
+ * Description:       Add Bootstrap to wordpress widgets. Widget Output Filters plugin included.
+ * Version:           1.0.0
+ * Author:            Bryan Willis
+ * Author URI:        http://profiles.wordpress.org/codecandid
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ */
 
 
-// Inculde function if plugin is not active
+/**
+ * Widget Output Filters (Philip Newcomer)
+ * https://wordpress.org/plugins/widget-output-filters/
+ */
 if ( ! function_exists('widget_output_filters_dynamic_sidebar_params') ) {
 function widget_output_filters_dynamic_sidebar_params( $sidebar_params ) {
 	if ( is_admin() ) {
@@ -25,8 +37,6 @@ function widget_output_filters_dynamic_sidebar_params( $sidebar_params ) {
 }
   add_filter( 'dynamic_sidebar_params', 'widget_output_filters_dynamic_sidebar_params', 9 );
 }
-
-// Inculde function if plugin is not active
 if ( ! function_exists('widget_output_filters_display_widget') ) {
 function widget_output_filters_display_widget() {
 	global $wp_registered_widgets;
@@ -45,7 +55,9 @@ function widget_output_filters_display_widget() {
 }
 
 
-// Bootstrap support for core wordpress widgets
+/** 
+ * Bootstrap support for core wordpress widgets
+ */
 function brw_bootstrap_widget_output_filters( $widget_output, $widget_type, $widget_id ) {
     if ( 'categories' == $widget_type ) {
       $widget_output = str_replace('<ul>', '<ul class="list-group">', $widget_output);
