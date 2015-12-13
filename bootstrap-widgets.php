@@ -3,8 +3,7 @@
  * Wordpress Widgets Bootstraped
  *
  * @package   Wordpress Widgets Bootstraped
- * @author    Bryan Willis <bryanwillis1@gmail.com>
- * @coauthor Philip Newcomer
+ * @author    Bryan Willis and Philip Newcomer
  * @license   GPL-2.0+
  * @link      http://wordpress.stackexchange.com/a/211634/43806
  *
