@@ -88,7 +88,8 @@ function brw_bootstrap_widget_output_filters( $widget_output, $widget_type, $wid
 	    		break;
     		default:
 			$widget_output = $widget_output; // not sure if this is needed
-			
+	}
+	
       return $widget_output;
       
 }
