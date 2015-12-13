@@ -58,7 +58,7 @@ function brw_bootstrap_widget_output_filters( $widget_output, $widget_type, $wid
         		$widget_output = str_replace('<table id="wp-calendar', '<table class="table table-condensed" id="wp-calendar', $widget_output);
     			break;
 		case 'tag_cloud' :    	
-			$regex = "/(<a[^>]+?)( style='font-size:.+pt;'>)([^<]+?)(<\/a>)/";
+			$regex = "/(<a[^>]+?)( style='font-size:.+pt;'>)([^<]+?)(<\/a>)/"; // can probably be cleaned up
 			$replace_with = "$1><span class='label label-primary'>$3</span>$4";
 			$widget_output = preg_replace( $regex , $replace_with , $widget_output );
     			break;
@@ -87,7 +87,7 @@ function brw_bootstrap_widget_output_filters( $widget_output, $widget_type, $wid
 	        	$widget_output = str_replace(' class="menu"', 'class="menu nav nav-stacked nav-pills"', $widget_output);
 	    		break;
     		default:
-			$widget_output = $widget_output; // not sure if this is needed
+			$widget_output = $widget_output; // not sure if this is needed...
 	}
 	
       return $widget_output;
