@@ -3,7 +3,7 @@
 /**
  * Wordpress Widget Filters
  *
- * @package    Wordpress Widget Filters
+ * @package   Wordpress Widget Filters
  * @author    Bryan Willis
  * @license   GPL-2.0+
  * @link      http://wordpress.stackexchange.com/a/211634/43806
@@ -33,7 +33,7 @@ function activate_wop_bootstrap_register_activation_hook() {
 	$admin_url = admin_url().'/plugin-install.php?tab=plugin-information&plugin=widget-output-filters';
 	if ( ! function_exists('widget_output_filters_dynamic_sidebar_params') ) {
 		deactivate_plugins( plugin_basename( __FILE__ ) );
-		wp_die( sprintf( __( 'Sorry, you can\'t activate %1$sBootstrap-Widget-Filters%2$s unless you have installed the %3$sWidget Output Filters Plugin%4$s. Go back to the %5$sPlugins Page%4$s.' ), '<em>', '</em>', '<a href="'.$admin_url.'" target="_blank">', '</a>', '<a href="javascript:history.back()">' ) );
+		wp_die( sprintf( __( 'This theme requires a bootstrap supported theme and Widget Output Filters to work. You can\'t activate %1$sBootstrap-Widget-Filters%2$s until you install or activate the %3$sWidget Output Filters Plugin%4$s. Go back to the %5$sPlugins Page%4$s.' ), '<em>', '</em>', '<a href="'.$admin_url.'" target="_blank">', '</a>', '<a href="javascript:history.back()">' ) );
 	}
 }
 
