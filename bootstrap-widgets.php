@@ -58,26 +58,31 @@ function widget_output_filters_display_widget() {
  * Bootstrap support for core wordpress widgets
  */
 function brw_bootstrap_widget_output_filters( $widget_output, $widget_type, $widget_id ) {
+  
 	if ( 'categories' == $widget_type ) {
       		$widget_output = str_replace('<ul>', '<ul class="list-group">', $widget_output);
       		$widget_output = str_replace('<li class="cat-item cat-item-', '<li class="list-group-item cat-item cat-item-', $widget_output);
       		$widget_output = str_replace('(', '<span class="badge cat-item-count"> ', $widget_output);
       		$widget_output = str_replace(')', ' </span>', $widget_output);
     	}
+       elseif ( 'links' == $widget_type ) {
+          $widget_output = str_replace('<ul class=\'xoxo blogroll\'>', '<ul class="list-group">', $widget_output);
+          $widget_output = str_replace('<li>', '<li class="list-group-item cat-item cat-item-3">', $widget_output);
+      }
     	elseif ( 'calendar' == $widget_type ) {
-		$widget_output = str_replace('calendar_wrap', 'calendar_wrap table-responsive', $widget_output);
+		      $widget_output = str_replace('calendar_wrap', 'calendar_wrap table-responsive', $widget_output);
         	$widget_output = str_replace('<table id="wp-calendar', '<table class="table table-condensed" id="wp-calendar', $widget_output);
     	}
     	elseif ( 'tag_cloud' == $widget_type )  {
-		$regex = "/(<a[^>]+?)( style='font-size:.+pt;'>)([^<]+?)(<\/a>)/";
-		$replace_with = "$1><span class='label label-primary'>$3</span>$4";
-		$widget_output = preg_replace( $regex , $replace_with , $widget_output );
+      		$regex = "/(<a[^>]+?)( style='font-size:.+pt;'>)([^<]+?)(<\/a>)/";
+      		$replace_with = "$1><span class='label label-primary'>$3</span>$4";
+      		$widget_output = preg_replace( $regex , $replace_with , $widget_output );
 	}
   	elseif ( 'archives' == $widget_type ) {
       		$widget_output = str_replace('<ul>', '<ul class="list-group">', $widget_output);
       		$widget_output = str_replace('<li>', '<li class="list-group-item archive-list-group-item">', $widget_output);
-		$widget_output = str_replace('(', '<span class="badge cat-item-count"> ', $widget_output);
-   		$widget_output = str_replace(')', ' </span>', $widget_output);
+		      $widget_output = str_replace('(', '<span class="badge cat-item-count"> ', $widget_output);
+   		   $widget_output = str_replace(')', ' </span>', $widget_output);
    	}
   	elseif ( 'meta' == $widget_type ) {
         	$widget_output = str_replace('<ul>', '<ul class="list-group">', $widget_output);
